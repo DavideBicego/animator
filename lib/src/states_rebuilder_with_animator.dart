@@ -78,7 +78,9 @@ class StatesRebuilderWithAnimator<T> extends StatesRebuilder
 
   _addAnimationListeners() {
     animation.addListener(() {
-      rebuildStates([TAG_ANIM]);
+      if(hasObservers){
+        rebuildStates([TAG_ANIM]);
+      }
     });
     if (_animator.customListener != null) {
       animation.addListener(() => _animator.customListener(this));
